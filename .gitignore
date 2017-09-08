@@ -38,6 +38,11 @@ target/*
 dist
 lib
 
+# Secrets folder
+
+secrets/*
+!secrets/.gitkeep
+
 # IDE files
 .idea
 *.iml
