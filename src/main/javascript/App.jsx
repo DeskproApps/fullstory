@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Moment from 'react-moment';
-import { apiKey as fullstoryApiKey } from '../../../secrets/fullstory';
 
 const DEBUG = false;
 
@@ -75,13 +74,9 @@ const fetchSessionList = (dpapp, email, apiKey) => {
 
 export default class App extends React.Component
 {
-  // should receive apiKey via props when custom props will be allowed via DeskproAppsContainer
-  // static propTypes = {
-  //   dpapp: React.PropTypes.object.isRequired,
-  //   apiKey: React.PropTypes.string.isRequired
-  // };
   static propTypes = {
-    dpapp: React.PropTypes.object.isRequired
+    dpapp: React.PropTypes.object.isRequired,
+    apiKey: React.PropTypes.string.isRequired
   };
 
   constructor(props) {
@@ -94,7 +89,7 @@ export default class App extends React.Component
   };
 
   componentDidMount() {
-    const { dpapp } = this.props;
+    const { dpapp, apiKey } = this.props;
 
     dpapp.context.getTabData()
       .then(tabData => {
@@ -108,7 +103,7 @@ export default class App extends React.Component
       })
       .then(({ email }) => {
         if (! email) { return []; }
-        return fetchSessionList(dpapp, email, fullstoryApiKey);
+        return fetchSessionList(dpapp, email, apiKey);
       })
       .then(sessions => {
         DEBUG && console.log ('got sessions', sessions);

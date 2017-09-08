@@ -5,9 +5,9 @@
   "requires": true,
   "dependencies": {
     "@deskproapps/deskproapps-sdk-core": {
-      "version": "1.0.0",
-      "resolved": "https://registry.npmjs.org/@deskproapps/deskproapps-sdk-core/-/deskproapps-sdk-core-1.0.0.tgz",
-      "integrity": "sha1-vNdMnLxqTGdv7wNmXAnIv8F3Yq4=",
+      "version": "1.0.0-beta.15",
+      "resolved": "https://registry.npmjs.org/@deskproapps/deskproapps-sdk-core/-/deskproapps-sdk-core-1.0.0-beta.15.tgz",
+      "integrity": "sha1-Vszv7ZWfYxgR15X5lLA9Ie1Ds28=",
       "requires": {
         "@deskproapps/dpat": "0.5.2",
         "docdash": "0.4.0",
@@ -19,14 +19,15 @@
       }
     },
     "@deskproapps/deskproapps-sdk-react": {
-      "version": "1.0.0-beta.5",
-      "resolved": "https://registry.npmjs.org/@deskproapps/deskproapps-sdk-react/-/deskproapps-sdk-react-1.0.0-beta.5.tgz",
-      "integrity": "sha1-wwfrf4wYIKulaeHQbuYnioCAN5w=",
+      "version": "1.0.0-beta.6",
+      "resolved": "https://registry.npmjs.org/@deskproapps/deskproapps-sdk-react/-/deskproapps-sdk-react-1.0.0-beta.6.tgz",
+      "integrity": "sha1-jde2+yN8/4KW9Sz9qbdenaulVnA=",
       "requires": {
-        "@deskproapps/deskproapps-sdk-core": "1.0.0",
+        "@deskproapps/deskproapps-sdk-core": "1.0.0-beta.15",
         "graphql": "0.9.6",
         "lodash.isequal": "https://registry.npmjs.org/lodash.isequal/-/lodash.isequal-4.5.0.tgz",
         "lodash.merge": "4.6.0",
+        "prop-types": "15.5.10",
         "react": "15.5.3",
         "react-dom": "15.5.3",
         "semantic-ui-react": "0.67.2",
