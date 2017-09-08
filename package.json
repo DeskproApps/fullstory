@@ -1,0 +1,54 @@
+{
+  "name": "@deskproapps/fullstory",
+  "version": "0.1.0",
+  "description": "This application adds a sidebar that lets you see a ticket owner's list of Fullstory sessions",
+  "main": "lib/main/javascript/index.js",
+  "scripts": {
+    "dev": "dpat server .",
+    "package": "dpat clean . && dpat compile . && dpat verify ./dist && dpat package .",
+    "test": "dpat test ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeskproApps/fullstory.git"
+  },
+  "keywords": [
+    "deskpro",
+    "deskpro apps",
+    "fullstory"
+  ],
+  "author": {
+    "name": "DeskPRO Apps",
+    "email": "apps@deskpro.com",
+    "url": "https://www.deskpro.com"
+  },
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/DeskproApps/fullstory/issues"
+  },
+  "homepage": "https://github.com/DeskproApps/fullstory#readme",
+  "deskpro": {
+    "version": "2.1.0",
+    "title": "Fullstory",
+    "isSingle": true,
+    "scope": "agent",
+    "targets": [
+      {
+        "target": "ticket-sidebar",
+        "url": "html/index.html"
+      }
+    ],
+    "settings": [],
+    "deskproApiTags": [],
+    "externalApis": []
+  },
+  "dependencies": {
+    "@deskproapps/deskproapps-sdk-react": "^1.0.0-beta.5",
+    "deskpro-components": "^0.5.12"
+  },
+  "devDependencies": {
+    "file-loader": "^0.11.2",
+    "react-test-renderer": "^15.6.1",
+    "url-loader": "^0.5.9"
+  }
+}
