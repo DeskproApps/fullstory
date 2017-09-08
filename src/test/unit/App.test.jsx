@@ -2,7 +2,7 @@ import React from 'react';
 import { createAppFromProps } from '@deskproapps/deskproapps-sdk-core';
 import renderer from 'react-test-renderer';
 
-import App from '../../main/javascript/App';
+import { default as App, orderSessionsByCreatedTime } from '../../main/javascript/App';
 
 test('successfully render the application in initial state', done => {
 
@@ -28,5 +28,19 @@ test('successfully render the application in initial state', done => {
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 
+  done();
+});
+
+test ('order sessions by created time', done =>{
+  "use strict";
+
+  const dummySessions = [
+    { UserId:123, SessionId: 456, CreatedTime: 1476470464, FsUrl: "https://www.fullstory.com..." },
+    { UserId:124, SessionId: 457, CreatedTime: 1476500464, FsUrl: "https://www.fullstory.com..." },
+    { UserId:125, SessionId: 458, CreatedTime: 1476900464, FsUrl: "https://www.fullstory.com..." }
+  ];
+
+  const orderedSessions = dummySessions.concat([]).sort(orderSessionsByCreatedTime.bind(null, true));
+  expect(orderedSessions).toEqual(dummySessions.reverse());
   done();
 });

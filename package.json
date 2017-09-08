@@ -44,7 +44,9 @@
   },
   "dependencies": {
     "@deskproapps/deskproapps-sdk-react": "^1.0.0-beta.5",
-    "deskpro-components": "^0.5.12"
+    "deskpro-components": "^0.5.12",
+    "moment": "2.18.1",
+    "react-moment": "0.6.5"
   },
   "devDependencies": {
     "file-loader": "^0.11.2",
