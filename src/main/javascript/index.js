@@ -1,12 +1,12 @@
 import ReactDOM from 'react-dom';
-import { DeskproAppContainer } from '@deskproapps/deskproapps-sdk-react';
-import App from './App';
+import { DeskproSDK, configureStore } from '@deskpro/apps-sdk-react';
+import { App } from './App';
 
 export function runApp(app) {
+  const store = configureStore(app);
 
-  //<DeskproAppContainer app={app} name={'Fullstory'} mainComponent={App} apiKey={apiKey}/>
   ReactDOM.render(
-    <DeskproAppContainer app={app} name={'Fullstory'} mainComponent={App} />,
+    <DeskproSDK dpapp={app} store={store} component={App} />,
     document.getElementById('deskpro-app')
   );
 }
