@@ -71,5 +71,9 @@
     "url-loader": "0.6.2",
     "moment": "2.18.1",
     "react-moment": "0.6.5"
+  },
+  "optionalDependencies": {
+    "changelog-verify": "1.0.4",
+    "version-changelog": "2.1.0"
   }
 }
