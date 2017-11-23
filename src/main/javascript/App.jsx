@@ -7,7 +7,7 @@ import { Container, Heading, Loader, ListElement, List, Icon, Scrollbar } from '
 const DEBUG = true;
 
 export const selectPersonEmailFromTabData = ({ person : {emails} }) => {
-  return 'TUSAM@Transunion.com';
+
   if (! emails) {
     return null;
   }
