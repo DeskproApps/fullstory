@@ -1,3 +1,20 @@
-/** entrypoint for your custom scss **/
-$dp-styles-font-path: "~deskpro-components/src/styles/fonts/";
-@import "~deskpro-components/src/styles/main.scss";
+$dp-styles-font-path: "~@deskpro/react-components/src/styles/fonts/";
+@import "~@deskpro/react-components/src/styles/main.scss";
+
+
+.dp-container  {
+  .dp-fullstory__list {
+    padding-left: 0;
+  }
+}
+
+.dp-fullstory__sessionid
+{
+  display: inline-block;
+  vertical-align: bottom;
+  width: 30px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+

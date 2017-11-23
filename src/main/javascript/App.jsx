@@ -1,10 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 
-const DEBUG = false;
+import { Container, Heading, Loader, ListElement, List, Icon, Scrollbar } from '@deskpro/react-components';
 
-export const selectPersonEmailFromTabData = ({api_data: {person : {emails}}}) => {
+const DEBUG = true;
+
+export const selectPersonEmailFromTabData = ({ person : {emails} }) => {
+  return 'TUSAM@Transunion.com';
   if (! emails) {
     return null;
   }
@@ -38,15 +41,6 @@ export const orderSessionsByCreatedTime = (reverse, a, b) => {
   return reverse ? -1 * result : result;
 };
 
-export const mapSessionToMarkup = ({ CreatedTime, FsUrl }) =>
-{
-  return (
-    <li>
-      <a href={FsUrl} target="_blank">Play session</a> - <span><Moment unix fromNow>{CreatedTime}</Moment></span>
-    </li>
-  );
-};
-
 const fetchSessionList = (dpapp, email, apiKey) => {
   const { restApi } = dpapp;
 
@@ -72,11 +66,12 @@ const fetchSessionList = (dpapp, email, apiKey) => {
     })
 };
 
-export default class App extends React.Component
+export class App extends React.Component
 {
   static propTypes = {
-    dpapp: React.PropTypes.object.isRequired,
-    apiKey: React.PropTypes.string.isRequired
+    dpapp: PropTypes.object.isRequired,
+
+    store: PropTypes.object.isRequired
   };
 
   constructor(props) {
@@ -89,22 +84,19 @@ export default class App extends React.Component
   };
 
   componentDidMount() {
-    const { dpapp, apiKey } = this.props;
 
-    dpapp.context.getTabData()
-      .then(tabData => {
-        let email;
-        try {
-          email = selectPersonEmailFromTabData(tabData);
-        } catch (e) {
-          email = null;
-        }
-        return { email };
-      })
-      .then(({ email }) => {
-        if (! email) { return []; }
-        return fetchSessionList(dpapp, email, apiKey);
-      })
+    const { dpapp } = this.props;
+    const state = this.props.store.getState();
+
+    let email;
+    try {
+      email = selectPersonEmailFromTabData(state.sdk.tabData);
+    } catch (e) {
+      console.error(e);
+    }
+
+    dpapp.storage.getAppStorage('apikey')
+      .then(apiKey => fetchSessionList(dpapp, email, apiKey))
       .then(sessions => {
         DEBUG && console.log ('got sessions', sessions);
         this.setState({ sessions });
@@ -112,31 +104,54 @@ export default class App extends React.Component
       .catch((err) => {
         this.setState({ sessions: null });
         DEBUG && console.log('error retrieving sessions data', err);
-    })
+      })
     ;
   }
-
-  // shouldComponentUpdate() { return false; }
 
   render() {
 
     const { sessions } = this.state;
 
     if (! sessions) {
-      return (<span>Reading sessions...</span>);
+      return (<Loader/>);
     }
 
     if (sessions.length === 0) {
-      return (<span>No recorded sessions found</span>);
+      return (<Container>No recorded sessions found</Container>);
     }
 
     try {
       const orderedSessions = sessions.concat([]).sort(orderSessionsByCreatedTime.bind(null, true));
-      const markup = orderedSessions.map(mapSessionToMarkup);
-      return (<ul> {markup} </ul>);
+      return (
+        <Container className={"dp-fullstory"}>
+          <List className={"dp-fullstory__list"}> {
+            orderedSessions.map(this.renderSession)
+          } </List>
+        </Container>
+    );
     } catch (e) {
       return (<span> Error displaying data </span>);
     }
-
   }
+
+  renderSession = ({ CreatedTime, FsUrl, SessionId }) =>
+  {
+    return (
+      <ListElement>
+        <Heading size={3}>
+          <span>
+            <span>Session </span>
+            <a className={"dp-fullstory__sessionid"} href={FsUrl} target="_blank" rel="noopener noreferrer" title={`${SessionId}`} >
+              {SessionId}
+            </a>
+            <a href={FsUrl} target="_blank" rel="noopener noreferrer" title="Click to open in Fullstory">
+                <Icon name="external-link-square" />
+            </a>
+            <span> - <Moment unix fromNow>{CreatedTime}</Moment></span>
+          </span>
+        </Heading>
+      </ListElement>
+    );
+  };
+
 }

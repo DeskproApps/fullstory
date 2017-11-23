@@ -5,7 +5,7 @@
   "main": "lib/main/javascript/index.js",
   "scripts": {
     "dev": "dpat server .",
-    "package": "dpat clean . && dpat compile . && dpat verify ./dist && dpat package .",
+    "package": "dpat clean . && dpat compile . && dpat bundle-installer . && dpat verify ./dist && dpat package .",
     "test": "dpat test ."
   },
   "repository": {
@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/DeskproApps/fullstory#readme",
   "deskpro": {
-    "version": "2.1.0",
+    "version": "2.3.0",
     "title": "Fullstory",
     "isSingle": true,
     "scope": "agent",
@@ -38,19 +38,38 @@
         "url": "html/index.html"
       }
     ],
-    "settings": [],
+    "settings": [
+      {
+        "name": "apikey",
+        "defaultValue": "",
+        "title": "Your fullstory api key",
+        "required": true,
+        "type": "text"
+      }
+    ],
+    "storage": [],
     "deskproApiTags": [],
-    "externalApis": []
+    "externalApis": [
+      "/^https?://([^.]+\\.)*fullstory.com/?.*$/"
+    ]
   },
   "dependencies": {
-    "@deskproapps/deskproapps-sdk-react": "1.0.0-beta.6",
-    "deskpro-components": "^0.5.12",
-    "moment": "2.18.1",
-    "react-moment": "0.6.5"
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
   },
   "devDependencies": {
-    "file-loader": "^0.11.2",
-    "react-test-renderer": "^15.6.1",
-    "url-loader": "^0.5.9"
+    "@deskpro/apps-dpat": "^0.9.3",
+    "@deskpro/apps-installer": "github:deskpro/apps-installer#v0.3.3",
+    "@deskpro/apps-sdk-react": "0.1.2",
+    "@deskpro/react-components": "1.2.3",
+    "file-loader": "1.1.5",
+    "jsdom": "11.2.0",
+    "react-redux": "5.0.6",
+    "react-test-renderer": "15.6.1",
+    "redux": "3.7.2",
+    "redux-form": "7.1.2",
+    "url-loader": "0.6.2",
+    "moment": "2.18.1",
+    "react-moment": "0.6.5"
   }
 }
