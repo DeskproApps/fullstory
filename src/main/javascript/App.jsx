@@ -4,7 +4,7 @@ import Moment from 'react-moment';
 
 import { Container, Heading, Loader, ListElement, List, Icon, Scrollbar } from '@deskpro/react-components';
 
-const DEBUG = true;
+const DEBUG = false;
 
 export const selectPersonEmailFromTabData = ({ person : {emails} }) => {
 
