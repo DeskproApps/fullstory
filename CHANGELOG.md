@@ -10,5 +10,5 @@ This project is following [Semantic Versioning](http://semver.org)
 
  - initial release
  
-[Unreleased]: https://github.com/DeskproApps/app-installer/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/DeskproApps/app-installer/compare/master...v0.1.0
+[Unreleased]: https://github.com/DeskproApps/fullstory/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/DeskproApps/fullstory/compare/master...v0.1.0
