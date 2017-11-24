@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "dpat server .",
     "package": "dpat clean . && dpat compile . && dpat bundle-installer . && dpat verify ./dist && dpat package .",
-    "test": "dpat test ."
+    "test": "dpat test .",
+    "version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && git add CHANGELOG.md"
   },
   "repository": {
     "type": "git",
