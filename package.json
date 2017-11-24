@@ -58,19 +58,18 @@
     "react-dom": "^15.6.1"
   },
   "devDependencies": {
-    "@deskpro/apps-dpat": "^0.9.5",
-    "@deskpro/apps-installer": "github:deskpro/apps-installer#v0.4.1",
+    "@deskpro/apps-dpat": "^0.9.6",
     "@deskpro/apps-sdk-react": "0.2.2",
     "@deskpro/react-components": "1.2.3",
     "file-loader": "1.1.5",
     "jsdom": "11.2.0",
+    "moment": "2.18.1",
+    "react-moment": "0.6.5",
     "react-redux": "5.0.6",
     "react-test-renderer": "15.6.1",
     "redux": "3.7.2",
     "redux-form": "7.1.2",
-    "url-loader": "0.6.2",
-    "moment": "2.18.1",
-    "react-moment": "0.6.5"
+    "url-loader": "0.6.2"
   },
   "optionalDependencies": {
     "changelog-verify": "1.0.4",
