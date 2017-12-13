@@ -7,7 +7,9 @@ This project is following [Semantic Versioning](http://semver.org)
 ## [0.1.2][] - 2017-12-13
 
 ### Changed  
+
  - upgrade to @deskpro/react-components version 1.2.4
+ - upgrade to @deskpro/apps-sdk-react version 0.2.3 
 
 ## [0.1.1][] - 2017-11-24
 

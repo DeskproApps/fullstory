@@ -60,7 +60,7 @@
   },
   "devDependencies": {
     "@deskpro/apps-dpat": "^0.9.6",
-    "@deskpro/apps-sdk-react": "0.2.2",
+    "@deskpro/apps-sdk-react": "0.2.3",
     "@deskpro/react-components": "1.2.4",
     "file-loader": "1.1.5",
     "jsdom": "11.2.0",
