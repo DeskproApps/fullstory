@@ -1,6 +1,6 @@
 {
   "name": "@deskproapps/fullstory",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "This application adds a sidebar that lets you see a ticket owner's list of Fullstory sessions",
   "main": "lib/main/javascript/index.js",
   "scripts": {
@@ -61,7 +61,7 @@
   "devDependencies": {
     "@deskpro/apps-dpat": "^0.9.6",
     "@deskpro/apps-sdk-react": "0.2.2",
-    "@deskpro/react-components": "1.2.3",
+    "@deskpro/react-components": "1.2.4",
     "file-loader": "1.1.5",
     "jsdom": "11.2.0",
     "moment": "2.18.1",
