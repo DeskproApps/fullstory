@@ -2,31 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 
-import { Container, Heading, Loader, ListElement, List, Icon, Scrollbar } from '@deskpro/react-components';
+import { ListItem, List, Icon} from '@deskpro/apps-components';
 
-const DEBUG = false;
+const DEBUG = true;
 
-export const selectPersonEmailFromTabData = ({ person : {emails} }) => {
-
-  if (! emails) {
-    return null;
-  }
-
-  let candidates;
-  if (! emails instanceof Array) {
-    candidates = [ emails ];
-  } else {
-    candidates = emails;
-  }
-
-  const emailAddress = candidates.map(({ email }) => email).filter(email => !!email);
-  if (emailAddress.length) {
-    return emailAddress.pop();
-  }
-
-  return null;
-};
-
+const dummySessions = [
+  { CreatedTime: 10000, FsUrl: 'http://localhost', SessionId: 5 },
+  { CreatedTime: 20000, FsUrl: 'http://localhost', SessionId: 6 },
+];
 
 export const orderSessionsByCreatedTime = (reverse, a, b) => {
   let result;
@@ -41,7 +24,7 @@ export const orderSessionsByCreatedTime = (reverse, a, b) => {
   return reverse ? -1 * result : result;
 };
 
-const fetchSessionList = (dpapp, email, apiKey) => {
+const fetchSessionList = (dpapp, email) => {
   const { restApi } = dpapp;
 
   const fetchParams = {
@@ -49,7 +32,7 @@ const fetchSessionList = (dpapp, email, apiKey) => {
     headers: {
       'Content-Type': 'application/json' ,
       'Accept': 'application/json' ,
-      'Authorization':  `Basic ${apiKey}`
+      'Authorization':  `Basic {{apikey}}`
     }
   };
 
@@ -86,26 +69,17 @@ export class App extends React.Component
   componentDidMount() {
 
     const { dpapp } = this.props;
-    const state = this.props.store.getState();
 
-    let email;
-    try {
-      email = selectPersonEmailFromTabData(state.sdk.tabData);
-    } catch (e) {
-      console.error(e);
-    }
-
-    dpapp.storage.getAppStorage('apikey')
-      .then(apiKey => fetchSessionList(dpapp, email, apiKey))
+    dpapp.context.get('ticket').get('data.person_email')
+      .then(email => fetchSessionList(dpapp, email))
       .then(sessions => {
         DEBUG && console.log ('got sessions', sessions);
-        this.setState({ sessions });
+        this.setState({ sessions: dummySessions });
       })
       .catch((err) => {
-        this.setState({ sessions: null });
+        this.setState({ sessions: dummySessions });
         DEBUG && console.log('error retrieving sessions data', err);
-      })
-    ;
+      });
   }
 
   render() {
@@ -113,23 +87,22 @@ export class App extends React.Component
     const { sessions } = this.state;
 
     if (! sessions) {
-      return (<Loader/>);
+      return (<p>Loading....</p>);
     }
 
     if (sessions.length === 0) {
-      return (<Container>No recorded sessions found</Container>);
+      return (<p>No recorded sessions found</p>);
     }
 
     try {
       const orderedSessions = sessions.concat([]).sort(orderSessionsByCreatedTime.bind(null, true));
       return (
-        <Container className={"dp-fullstory"}>
-          <List className={"dp-fullstory__list"}> {
-            orderedSessions.map(this.renderSession)
-          } </List>
-        </Container>
+          <List>
+            { orderedSessions.map(this.renderSession) }
+          </List>
     );
     } catch (e) {
+      console.error(e);
       return (<span> Error displaying data </span>);
     }
   }
@@ -137,20 +110,21 @@ export class App extends React.Component
   renderSession = ({ CreatedTime, FsUrl, SessionId }) =>
   {
     return (
-      <ListElement>
-        <Heading size={3}>
-          <span>
-            <span>Session </span>
-            <a className={"dp-fullstory__sessionid"} href={FsUrl} target="_blank" rel="noopener noreferrer" title={`${SessionId}`} >
-              {SessionId}
-            </a>
-            <a href={FsUrl} target="_blank" rel="noopener noreferrer" title="Click to open in Fullstory">
-                <Icon name="external-link-square" />
-            </a>
-            <span> - <Moment unix fromNow>{CreatedTime}</Moment></span>
-          </span>
-        </Heading>
-      </ListElement>
+      <ListItem>
+        <p>
+          <span>Session </span>
+          <a className={"dp-fullstory__sessionid"} href={FsUrl} target="_blank" rel="noopener noreferrer" title={`${SessionId}`} >
+            {SessionId}
+          </a>
+
+          <a href={FsUrl} target="_blank" rel="noopener noreferrer" title="Click to open in Fullstory">
+            <Icon name="external-link-square" />
+          </a>
+
+          <span> - <Moment unix fromNow>{CreatedTime}</Moment></span>
+        </p>
+
+      </ListItem>
     );
   };
 

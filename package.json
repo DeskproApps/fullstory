@@ -55,13 +55,13 @@
     ]
   },
   "dependencies": {
+    "@deskpro/apps-components": "^0.3.6",
+    "@deskpro/apps-sdk-react": "^2.0.0-beta.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   },
   "devDependencies": {
-    "@deskpro/apps-dpat": "^0.9.6",
-    "@deskpro/apps-sdk-react": "0.2.4",
-    "@deskpro/react-components": "1.2.4",
+    "@deskpro/apps-dpat": "^0.10.5",
     "file-loader": "1.1.5",
     "jsdom": "11.2.0",
     "moment": "2.18.1",
