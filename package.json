@@ -5,8 +5,8 @@
   "main": "lib/main/javascript/index.js",
   "scripts": {
     "dev": "dpat server .",
-    "package": "dpat clean . && dpat compile . && dpat bundle-installer . && dpat verify ./dist && dpat package .",
     "test": "dpat test .",
+    "package": "dpat clean . && dpat compile . && dpat bundle-installer . && dpat verify ./dist && dpat package .",
     "version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && git add CHANGELOG.md"
   },
   "repository": {
@@ -55,25 +55,26 @@
     ]
   },
   "dependencies": {
-    "@deskpro/apps-components": "^0.3.6",
-    "@deskpro/apps-sdk-react": "^2.0.0-beta.1",
+    "@deskpro/apps-sdk-react": "2.0.0-beta.3",
+    "babel-jest": "^23.4.0",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "react-svg-inline": "^2.1.1"
   },
   "devDependencies": {
-    "@deskpro/apps-dpat": "^0.10.5",
-    "file-loader": "1.1.5",
+    "@deskpro/apps-dpat": "0.10.6",
     "jsdom": "11.2.0",
     "moment": "2.18.1",
     "react-moment": "0.6.5",
-    "react-redux": "5.0.6",
-    "react-test-renderer": "15.6.1",
-    "redux": "3.7.2",
-    "redux-form": "7.1.2",
-    "url-loader": "0.6.2"
+    "react-test-renderer": "15.6.1"
   },
   "optionalDependencies": {
     "changelog-verify": "1.0.4",
     "version-changelog": "2.1.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint"
+    ]
   }
 }

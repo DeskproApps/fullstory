@@ -1,6 +1,4 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-
 import { default as App, orderSessionsByCreatedTime } from '../../main/javascript/App';
 
 test ('order sessions by created time', done =>{
