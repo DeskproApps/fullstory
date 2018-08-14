@@ -6,8 +6,6 @@ This project is following [Semantic Versioning](http://semver.org)
 
  - use @deskpro/apps-dpat version @deskpro/0.10.5
 
-
-
 ## [0.1.3][] - 2018-02-09
 
  - default `process.env.NODE_ENV` to `production` when packaging the app for distribution with webpack  

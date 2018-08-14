@@ -1,5 +1,5 @@
 import React from 'react';
-import { default as App, orderSessionsByCreatedTime } from '../../main/javascript/App';
+import { default as App, orderSessionsByCreatedTime } from '../../src/App';
 
 test ('order sessions by created time', done =>{
   "use strict";

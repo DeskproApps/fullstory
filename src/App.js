@@ -2,20 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 
-import { ListItem, List, Icon} from '@deskpro/apps-components';
+import { ListItem, List, Icon } from '@deskpro/apps-components';
 
 const DEBUG = true;
-
-const dummySessions = [
-  { CreatedTime: 10000, FsUrl: 'http://localhost', SessionId: 5 },
-  { CreatedTime: 20000, FsUrl: 'http://localhost', SessionId: 6 },
-];
 
 export const orderSessionsByCreatedTime = (reverse, a, b) => {
   let result;
   if (a.CreatedTime < b.CreatedTime) {
     result = -1;
-  } else if (a.CreatedTime == b.CreatedTime) {
+  } else if (a.CreatedTime === b.CreatedTime) {
     result = 0;
   } else {
     result = 1;
@@ -38,7 +33,7 @@ const fetchSessionList = (dpapp, email) => {
 
   const url = `https://www.fullstory.com/api/v1/sessions?email=${email}`;
 
-  return restApi.fetchCORS(url, fetchParams)
+  return restApi.fetchProxy(url, fetchParams)
     .then(response => {
       DEBUG && console.log('received a good response ', response);
       return response.body;
@@ -49,21 +44,15 @@ const fetchSessionList = (dpapp, email) => {
     })
 };
 
-export class App extends React.Component
+export default class App extends React.Component
 {
   static propTypes = {
-    dpapp: PropTypes.object.isRequired,
-
-    store: PropTypes.object.isRequired
+    dpapp: PropTypes.object.isRequired
   };
 
-  constructor(props) {
-    super(props);
-    this.initState();
-  }
-
-  initState = () => {
-    this.state = { sessions: null };
+  state = {
+    sessions: null,
+    error: null
   };
 
   componentDidMount() {
@@ -74,17 +63,20 @@ export class App extends React.Component
       .then(email => fetchSessionList(dpapp, email))
       .then(sessions => {
         DEBUG && console.log ('got sessions', sessions);
-        this.setState({ sessions: dummySessions });
+        this.setState({ sessions });
       })
       .catch((err) => {
-        this.setState({ sessions: dummySessions });
+        this.setState({ error: err });
         DEBUG && console.log('error retrieving sessions data', err);
       });
   }
 
   render() {
 
-    const { sessions } = this.state;
+    const { sessions, error } = this.state;
+    if (!!error) {
+      return (<p> Error displaying data </p>);
+    }
 
     if (! sessions) {
       return (<p>Loading....</p>);
@@ -97,20 +89,20 @@ export class App extends React.Component
     try {
       const orderedSessions = sessions.concat([]).sort(orderSessionsByCreatedTime.bind(null, true));
       return (
-          <List>
-            { orderedSessions.map(this.renderSession) }
-          </List>
-    );
+        <List>
+          { orderedSessions.map(this.renderSession) }
+        </List>
+      );
     } catch (e) {
       console.error(e);
-      return (<span> Error displaying data </span>);
+      return (<p> Error displaying data </p>);
     }
   }
 
   renderSession = ({ CreatedTime, FsUrl, SessionId }) =>
   {
     return (
-      <ListItem>
+      <ListItem key={SessionId}>
         <p>
           <span>Session </span>
           <a className={"dp-fullstory__sessionid"} href={FsUrl} target="_blank" rel="noopener noreferrer" title={`${SessionId}`} >
@@ -127,5 +119,4 @@ export class App extends React.Component
       </ListItem>
     );
   };
-
 }

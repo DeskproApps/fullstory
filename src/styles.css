@@ -1,6 +1,8 @@
+/* You can add your own styles here */
+
 .dp-container  {
   .dp-fullstory__list {
-    padding-left: 0;
+  padding-left: 0;
   }
 }
 
@@ -13,4 +15,3 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-

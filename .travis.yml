@@ -1,17 +1,20 @@
 language: node_js
 node_js:
-- '6'
+- '8'
 install:
-- npm install -g npm@5.3.0 && npm -v
-- npm install --no-optional --no-save
+- NODE_ENV=dev yarn install
 script:
-- npm test && npm run package
+- yarn test && yarn build
+cache:
+  yarn: true
+  directories:
+    - node_modules
 deploy:
   skip_cleanup: true
   provider: releases
   api_key:
     secure: O0KsbNof60tftIUu0PIhAbp3RrwFS6OhzS/ixz8LynfTdA+BfB1oSK1AOFDemlKvcZSnu8JpTdoUcxU9sF/UjEc7CENvjhs6HGweoQ9Z9X5QAoMRjYAx2oXiNy/+gzL1b6UkqOcqlLiq1q6/AnrwZFzHgHML5gbpsVVdGwREVn0x6Br2NLGjUTlO3z/h0sqrfb/4ILUjAg1wkhb1H8pv7TQUoiM9v7yXzZpGzrhCslk26QqlgWXMfJBHV/YbRsBS9iqXrxNwNxKxrj1Meo+dEclaAbABT6+Hniouta25I+zH7wGP0Eibdqh2ezI1JCpAzcO00RXCxc8yHTzqEC4GGw9kMNwE1niv0n39TsK5AIIItJksVq9ctBzLdCjqFZLuCOO4fIL1fF19SqhCKrq9zg3z5/CjObLtrrNmFvocuCn9VjYPZiW6Sj6VbESx52JES3Q9Xo49NkKd0t6psa8XNxUjyuB7bil8waibIc+pfuiagRpdJ5wbjQtVuwJGJncDs8uMRDF4WToJumxw4rynwn5oCwnB4Ay6WbcQekXDTFpBiGwe2cQAQtlQMYy/9YnH6SUjeKdjTito9Nd4NFNuaGeMc3oA57qezUMPBldjvwL1aKxLtYwxo2ASnvEXp3/sd4CS5PPi81W2wSE5WAC9UvNh1JkZxq4B44QCIi3BYLc=
-  file: dist/app.zip
+  file: build/app.zip
   on:
     repo: DeskproApps/fullstory
     tags: true
