@@ -1,6 +1,6 @@
 {
   "name": "app-fullstory",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "private": true,
   "dependencies": {
     "@deskpro/apps-components": "^0.5.0",
@@ -28,7 +28,8 @@
     "eject": "react-scripts eject",
     "lint": "react-scripts eslint src test",
     "format": "react-scripts prettier --write \"{src,test}/**/*.js\"",
-    "format:check": "react-scripts prettier --list-different \"{src,test}/**/*.js\""
+    "format:check": "react-scripts prettier --list-different \"{src,test}/**/*.js\"",
+    "version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && git add CHANGELOG.md"
   },
   "description": "What does your app do?",
   "author": {
