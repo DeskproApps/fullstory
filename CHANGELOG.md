@@ -4,7 +4,9 @@ This project is following [Semantic Versioning](http://semver.org)
 
 ## [Unreleased][]
 
- - use @deskpro/apps-dpat version @deskpro/0.10.5
+ - use the new apps structure
+ - use @deskpro/apps-sdk@0.5.0
+ - use @deskpro/apps-components@0.5.0
 
 ## [0.1.3][] - 2018-02-09
 
