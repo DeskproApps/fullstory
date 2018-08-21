@@ -1,5 +1,5 @@
 {
-  "name": "app-fullstory",
+  "name": "@deskproapps/fullstory",
   "version": "0.1.4",
   "private": true,
   "dependencies": {
