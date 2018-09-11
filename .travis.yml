@@ -5,8 +5,8 @@ before_install:
 - if [ ! -z "$ARTIFACTS_BUCKET" ] && [ ! -z "ARTIFACTS_KEY" ] && [ ! -z "ARTIFACTS_SECRET" ] ; then export UPLOAD_ARTIFACT=yes ; else echo artifact uploading is disabled; fi
 install:
 - NODE_ENV=dev yarn install
+- if [ ! -z "$UPLOAD_ARTIFACT" ]; then curl -sL https://raw.githubusercontent.com/travis-ci/artifacts/master/install | bash; fi
 - if [ ! -z "$UPLOAD_ARTIFACT" ]; then yarn add @deskpro/apps-ci-tools; fi
-
 script:
 - yarn test && yarn build
 after_success:
