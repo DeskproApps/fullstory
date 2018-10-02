@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@deskpro/apps-components": "0.8.0",
-    "@deskpro/apps-installer": "1.0.5",
+    "@deskpro/apps-installer": "1.0.7",
     "@deskpro/apps-react-scripts": "0.3.5",
     "@deskpro/apps-sdk": "0.8.0",
     "prop-types": "^15.6.2",
@@ -31,11 +31,11 @@
     "format:check": "react-scripts prettier --list-different \"{src,test}/**/*.js\"",
     "version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && git add CHANGELOG.md"
   },
-  "description": "What does your app do?",
+  "description": "This application adds a sidebar that lets you see a ticket owner's list of Fullstory sessions",
   "author": {
-    "name": "Your name or company name",
-    "email": "your@email.com",
-    "url": "https://your.app.homepage"
+    "name": "Deskpro Ltd.",
+    "email": "apps@deskpro.com",
+    "url": "https://www.deskpro.com"
   },
   "deskpro": {
     "version": "2.3.0",
@@ -49,7 +49,7 @@
       },
       {
         "target": "install",
-        "url": "html/install.html"
+        "url": "install.html"
       }
     ],
     "storage": [],
