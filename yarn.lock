@@ -19,17 +19,17 @@
     https "^1.0.0"
     node-fetch "^2.2.0"
 
-"@deskpro/apps-components-style@^0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@deskpro/apps-components-style/-/apps-components-style-0.8.0.tgz#b87027b3d11cdf9e2ae10b2a9fd34b7f1374acfc"
-  integrity sha512-Fb/qe5b24/DqziGsXGvkD8r9MklaItZHkzWkD9uu2dG/eT88UI4jNsrNbYHpNR604lzUXEvAChYh7GnT4l4OaQ==
+"@deskpro/apps-components-style@^0.8.3":
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/@deskpro/apps-components-style/-/apps-components-style-0.8.3.tgz#fa865c7032a9952fd72e06fbf6e431f6fd968d7f"
+  integrity sha512-YQsAo4VLYSsV6s6hZAKij2NSAjO+RFswHNHwapGVa19gzMSH1jaCukCmL3RUyW7rK0j0q4gFDvQtSGg8uLnbdg==
 
-"@deskpro/apps-components@0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@deskpro/apps-components/-/apps-components-0.8.0.tgz#8dbc8a0e8c1e86fddea571041b8bb97e734fc556"
-  integrity sha512-dFh5F+9kuMrRP7+wsOx/jNUj9swcl27TofweQYbckjV0C08J19UsO+4LIvCmQfghcqG4GEryuIJ2X/4D3uqJ8A==
+"@deskpro/apps-components@0.8.3":
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/@deskpro/apps-components/-/apps-components-0.8.3.tgz#4d3726b7424ffea17a4e53f235096b52d20c048a"
+  integrity sha512-DxQpOZ6mLFhuTi6bE5v+gFkOpVq45Mku70eB99fO/zriCIo7B02oOPSNr8a9a/JeFj1efGB5fdaL9qEVahgzbg==
   dependencies:
-    "@deskpro/apps-components-style" "^0.8.0"
+    "@deskpro/apps-components-style" "^0.8.3"
     classnames "^2.2.6"
     react-custom-scrollbars "^4.2.1"
 
@@ -50,12 +50,12 @@
     uniforms "^1.25.0"
     uniforms-unstyled "^1.25.0"
 
-"@deskpro/apps-react-scripts@0.3.5":
-  version "0.3.5"
-  resolved "https://registry.yarnpkg.com/@deskpro/apps-react-scripts/-/apps-react-scripts-0.3.5.tgz#cc73ad4eabed1deb177720d2fada470ce1bdcc16"
-  integrity sha512-O2cDKpgBKgfW9NnmB6S6wrDJvhI88yWzZSGC7gWCOcq5+18Dbd1HLZfPnLPR8zUB0beSxqCnnDvNvWxtv1KgNQ==
+"@deskpro/apps-react-scripts@0.3.6":
+  version "0.3.6"
+  resolved "https://registry.yarnpkg.com/@deskpro/apps-react-scripts/-/apps-react-scripts-0.3.6.tgz#ed46b8c02ba1da463fa33ef3cccc535a46e1c0dd"
+  integrity sha512-O5WHEn7qoLI/qiaA056Gm4T+a4nxB/0qgQIZgojgvHffCAKwWlPSv3C78PqdEdqz+TXl/yaqmd8kD9eTopC40w==
   dependencies:
-    "@deskpro/apps-sdk" "^0.8.0"
+    "@deskpro/apps-sdk" "~0.8.2"
     archiver "^2.1.1"
     autoprefixer "7.1.6"
     babel-cli "^6.26.0"
@@ -63,6 +63,7 @@
     babel-eslint "7.2.3"
     babel-jest "20.0.3"
     babel-loader "7.1.2"
+    babel-plugin-import-glob "^2.0.0"
     babel-polyfill "^6.26.0"
     babel-preset-react-app "^3.1.2"
     babel-runtime "6.26.0"
@@ -83,6 +84,7 @@
     fs-extra "3.0.1"
     html-webpack-plugin "3.2.0"
     jest "20.0.4"
+    js-yaml "^3.12.0"
     object-assign "4.1.1"
     postcss-flexbugs-fixes "3.2.0"
     postcss-loader "2.0.8"
@@ -97,13 +99,14 @@
     webpack-dev-server "2.9.4"
     webpack-manifest-plugin "1.3.2"
     whatwg-fetch "2.0.3"
+    yaml-loader "^0.5.0"
   optionalDependencies:
     fsevents "^1.1.3"
 
-"@deskpro/apps-sdk@0.8.0", "@deskpro/apps-sdk@^0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@deskpro/apps-sdk/-/apps-sdk-0.8.0.tgz#b0f79b708be2252c985a5c47bb7aaff20cb9fd9c"
-  integrity sha512-T6aSgXOmxJQToM1GBN+kCV2UpQhFgTY0tQGZK20bjVjoyTxpD89K34oXLW7k9OZ0mvdrJZ2Ci0z4vsJPiIsKzw==
+"@deskpro/apps-sdk@0.8.2":
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/@deskpro/apps-sdk/-/apps-sdk-0.8.2.tgz#ec9c354efea12127f29e39d57ec0ba4386174e72"
+  integrity sha512-DNBZwyzmGrfHeTpoefPUwjgVP9p4x77PxX/YF7w5/PUraakz/3vBWpTO3QSiFICmHzH3RmntjqPeNUA2J3GAsg==
   dependencies:
     element-resize-detector "^1.1.12"
     eventemitter3 "2.0.3"
@@ -113,10 +116,10 @@
     query-string "^5.1.1"
     warning "^4.0.1"
 
-"@deskpro/apps-sdk@0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@deskpro/apps-sdk/-/apps-sdk-0.8.2.tgz#ec9c354efea12127f29e39d57ec0ba4386174e72"
-  integrity sha512-DNBZwyzmGrfHeTpoefPUwjgVP9p4x77PxX/YF7w5/PUraakz/3vBWpTO3QSiFICmHzH3RmntjqPeNUA2J3GAsg==
+"@deskpro/apps-sdk@0.8.3", "@deskpro/apps-sdk@~0.8.2":
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/@deskpro/apps-sdk/-/apps-sdk-0.8.3.tgz#838806ecf57323e5d691457eac0e8a547e90801e"
+  integrity sha512-NbzrQ80qUsuAuLDW8lXEI/QzSyRzijmz2ZkWYFDAogTTPJvFCp2HbNUlPNQsZA6hr/5Jjq7K0ZCJn93tuZCGlg==
   dependencies:
     element-resize-detector "^1.1.12"
     eventemitter3 "2.0.3"
@@ -845,6 +848,15 @@ babel-plugin-dynamic-import-node@1.1.0:
     babel-template "^6.26.0"
     babel-types "^6.26.0"
 
+babel-plugin-import-glob@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-import-glob/-/babel-plugin-import-glob-2.0.0.tgz#80e34809732885c5bcb8763744c34cddb37163ca"
+  integrity sha1-gONICXMohcW8uHY3RMNM3bNxY8o=
+  dependencies:
+    glob "^7.0.0"
+    identifierfy "^1.1.0"
+    minimatch-capture "^1.1.0"
+
 babel-plugin-istanbul@^4.0.0:
   version "4.1.6"
   resolved "https://registry.yarnpkg.com/babel-plugin-istanbul/-/babel-plugin-istanbul-4.1.6.tgz#36c59b2192efce81c5b378321b74175add1c9a45"
@@ -1298,7 +1310,7 @@ babel-register@^6.26.0:
     mkdirp "^0.5.1"
     source-map-support "^0.4.15"
 
-babel-runtime@6.26.0, babel-runtime@^6.18.0, babel-runtime@^6.22.0, babel-runtime@^6.26.0:
+babel-runtime@6.26.0, babel-runtime@^6.18.0, babel-runtime@^6.22.0, babel-runtime@^6.26.0, babel-runtime@^6.3.19:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   integrity sha1-llxwWGaOgrVde/4E/yM3vItWR/4=
@@ -4248,6 +4260,14 @@ icss-utils@^2.1.0:
   dependencies:
     postcss "^6.0.1"
 
+identifierfy@^1.1.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/identifierfy/-/identifierfy-1.1.1.tgz#8f963650afa36aeb42f2ff0ed15f295ff040aff0"
+  integrity sha1-j5Y2UK+jautC8v8O0V8pX/BAr/A=
+  dependencies:
+    babel-runtime "^6.3.19"
+    esutils "^2.0.2"
+
 ieee754@^1.1.4:
   version "1.1.12"
   resolved "https://registry.yarnpkg.com/ieee754/-/ieee754-1.1.12.tgz#50bf24e5b9c8bb98af4964c941cdb0918da7b60b"
@@ -5084,7 +5104,7 @@ js-tokens@^3.0.2:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
   integrity sha1-mGbfOVECEw449/mWvOtlRDIJwls=
 
-js-yaml@^3.4.3, js-yaml@^3.7.0, js-yaml@^3.9.1:
+js-yaml@^3.12.0, js-yaml@^3.4.3, js-yaml@^3.5.2, js-yaml@^3.7.0, js-yaml@^3.9.1:
   version "3.12.0"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.12.0.tgz#eaed656ec8344f10f527c6bfa1b6e2244de167d1"
   integrity sha512-PIt2cnwmPfL4hKNwqeiuz4bKfnzHTBv6HyVgjahA6mPLwPDzjDWrplJBMjHUFxku/N3FlmrbyPclad+I+4mJ3A==
@@ -5824,6 +5844,13 @@ minimalistic-crypto-utils@^1.0.0, minimalistic-crypto-utils@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/minimalistic-crypto-utils/-/minimalistic-crypto-utils-1.0.1.tgz#f6c00c1c0b082246e5c4d99dfb8c7c083b2b582a"
   integrity sha1-9sAMHAsIIkblxNmd+4x8CDsrWCo=
+
+minimatch-capture@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/minimatch-capture/-/minimatch-capture-1.1.0.tgz#d6c8c2acdba92dc2f66921d8007ed0e42b2f9855"
+  integrity sha1-1sjCrNupLcL2aSHYAH7Q5CsvmFU=
+  dependencies:
+    minimatch "^3.0.4"
 
 minimatch@3.0.3:
   version "3.0.3"
@@ -9164,6 +9191,13 @@ yallist@^3.0.0, yallist@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-3.0.2.tgz#8452b4bb7e83c7c188d8041c1a837c773d6d8bb9"
   integrity sha1-hFK0u36Dx8GI2AQcGoN8dz1ti7k=
+
+yaml-loader@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/yaml-loader/-/yaml-loader-0.5.0.tgz#86b1982d84a8e429e6647d93de9a0169e1c15827"
+  integrity sha512-p9QIzcFSNm4mCw/m5NdyMfN4RE4aFZJWRRb01ERVNGCym8VNbKtw3OYZXnvUIkim6U/EjqE/2yIh9F/msShH9A==
+  dependencies:
+    js-yaml "^3.5.2"
 
 yargs-parser@^4.2.0:
   version "4.2.1"
