@@ -63,6 +63,12 @@ export default class App extends React.Component
       .then(email => fetchSessionList(dpapp, email))
       .then(sessions => {
         DEBUG && console.log ('got sessions', sessions);
+
+        if (sessions && sessions.length) {
+          dpapp.ui.badgeCount = sessions.length;
+          dpapp.ui.showBadgeCount();
+        }
+
         this.setState({ sessions });
       })
       .catch((err) => {
@@ -82,12 +88,10 @@ export default class App extends React.Component
       return (<p>Loading....</p>);
     }
 
+
     if (sessions.length === 0) {
       return (<p>No recorded sessions found</p>);
     }
-
-    this.props.dpapp.ui.badgeCount = sessions.length;
-    this.props.dpapp.ui.showBadgeCount();
 
     try {
       const orderedSessions = sessions.concat([]).sort(orderSessionsByCreatedTime.bind(null, true));
