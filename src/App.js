@@ -85,6 +85,7 @@ export default class App extends React.Component
     if (sessions.length === 0) {
       return (<p>No recorded sessions found</p>);
     }
+    this.props.dpapp.ui.badgeCount = sessions.length;
 
     try {
       const orderedSessions = sessions.concat([]).sort(orderSessionsByCreatedTime.bind(null, true));
