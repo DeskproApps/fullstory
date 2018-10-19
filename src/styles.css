@@ -1,10 +1,8 @@
-$dp-styles-font-path: "~@deskpro/react-components/src/styles/fonts/";
-@import "~@deskpro/react-components/src/styles/main.scss";
-
+/* You can add your own styles here */
 
 .dp-container  {
   .dp-fullstory__list {
-    padding-left: 0;
+  padding-left: 0;
   }
 }
 
@@ -17,4 +15,3 @@ $dp-styles-font-path: "~@deskpro/react-components/src/styles/fonts/";
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
