@@ -4,6 +4,14 @@ This project is following [Semantic Versioning](http://semver.org)
 
 ## [Unreleased][]
 
+### Added
+
+ - show an application placeholder before the app gets a change to load
+
+### Changed
+
+ - upgrade dependencies
+
 ## [0.2.0][] - 2018-10-19
 
 ### Added
